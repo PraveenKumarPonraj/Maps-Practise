@@ -1,0 +1,24 @@
+<h1>{{ title }}</h1>
+
+ <form [formGroup]="latlngForm" (ngSubmit)="onSubmit()">
+
+  <label for="lat">latitude</label>
+  <input id="lat" name="lat" type="text" formControlName="lat">
+
+
+  <label for="lng">longitude</label>
+  <input id="lng" name="lng" type="text" formControlName="lng">
+
+<button type="submit" [disabled]="!latlngForm.valid">Submit</button>
+
+</form> 
+
+
+<agm-map [latitude]="lat" [longitude]="lng">
+  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+</agm-map>
+
+<span>
+    <a routerLinkActive="active-link" routerLink="/city-radius">
+    <span>NEXT ></span></a>
+</span>
